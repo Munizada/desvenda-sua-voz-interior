@@ -557,12 +557,7 @@ function Sales() {
         <footer className="border-t border-border bg-white py-8 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} +150 Técnicas Fonoaudiológicas · Todos os direitos reservados
         </footer>
-      </div>
-    );
-  }
-  return Object.assign(
-    // eslint-disable-next-line react/display-name
-    (props: object & { ref?: React.Ref<HTMLDivElement> }) => SalesInner(props, props.ref ?? null),
-    { displayName: "Sales" },
+    </div>
   );
-})();
+}
+
