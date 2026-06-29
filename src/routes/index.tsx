@@ -172,7 +172,7 @@ function LandingPage() {
         }}
       />
     );
-  return <Sales ref={salesRef} />;
+  return <Sales />;
 }
 
 /* ------------------------------- INTRO -------------------------------- */
