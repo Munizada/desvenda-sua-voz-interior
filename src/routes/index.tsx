@@ -295,15 +295,11 @@ const BONUS = [
   { img: "/images/bonus-4-BRPUyRWa.webp", title: "Bônus 4" },
 ];
 
-const Sales = (() => {
-  function SalesInner(
-    _props: object,
-    ref: React.ForwardedRef<HTMLDivElement>,
-  ) {
-    return (
-      <div ref={ref} className="bg-[var(--cream)]">
-        {/* ============ HERO / RESULTADO ============ */}
-        <section className="relative overflow-hidden">
+function Sales() {
+  return (
+    <div className="bg-[var(--cream)]">
+      {/* ============ HERO / RESULTADO ============ */}
+      <section className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[color-mix(in_oklab,var(--primary)_14%,white)] to-transparent" />
           <div className="mx-auto grid max-w-6xl gap-10 px-5 pb-10 pt-10 sm:pt-16 md:grid-cols-2 md:items-center md:gap-14 md:pb-16">
             <div>
