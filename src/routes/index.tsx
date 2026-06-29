@@ -129,8 +129,8 @@ type Stage = "intro" | "quiz" | "sales";
 function LandingPage() {
   const [stage, setStage] = useState<Stage>("intro");
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<number[]>([]);
-  const salesRef = useRef<HTMLDivElement>(null);
+
+
 
   useEffect(() => {
     if (stage === "sales") {
