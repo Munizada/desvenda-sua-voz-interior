@@ -232,31 +232,44 @@ function Quiz({
   onBack: () => void;
 }) {
   return (
-    <div className="min-h-screen bg-[var(--cream)]">
+    <main className="min-h-dvh bg-[var(--cream)]">
       <div className="mx-auto w-full max-w-2xl px-5 py-8 sm:py-12">
         <div className="mb-6 flex items-center justify-between text-xs font-semibold text-muted-foreground">
-          <button onClick={onBack} className="hover:text-foreground">← Voltar</button>
-          <span>Pergunta {step + 1} de {QUIZ.length}</span>
+          <button
+            onClick={onBack}
+            aria-label="Voltar para a pergunta anterior"
+            className="inline-flex min-h-11 items-center rounded-md px-2 hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
+          >
+            ← Voltar
+          </button>
+          <span aria-live="polite">Pergunta {step + 1} de {QUIZ.length}</span>
         </div>
-        <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
+        <div
+          className="h-2 w-full overflow-hidden rounded-full bg-secondary"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Progresso do quiz"
+        >
           <div
             className="h-full rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--coral)] transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        <h2 className="mt-8 text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+        <h2 className="mt-8 text-balance text-2xl font-bold leading-tight text-foreground sm:text-3xl">
           {question.q}
         </h2>
 
-        <div className="mt-6 grid gap-3">
+        <div className="mt-6 grid gap-3" role="list">
           {question.options.map((opt, i) => (
             <button
               key={i}
               onClick={() => onPick(i)}
-              className="group flex items-start gap-4 rounded-2xl border-2 border-border bg-card p-4 text-left transition hover:-translate-y-0.5 hover:border-[var(--primary)] hover:shadow-lg sm:p-5"
+              className="group flex min-h-14 items-start gap-4 rounded-2xl border-2 border-border bg-card p-4 text-left transition hover:-translate-y-0.5 hover:border-[var(--primary)] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:p-5"
             >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-secondary font-bold text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white">
+              <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-secondary font-bold text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white">
                 {String.fromCharCode(65 + i)}
               </span>
               <span className="pt-1 text-base text-foreground sm:text-[1.05rem]">{opt}</span>
@@ -264,7 +277,7 @@ function Quiz({
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
