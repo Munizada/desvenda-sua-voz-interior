@@ -179,20 +179,23 @@ function LandingPage() {
 
 function Intro({ onStart }: { onStart: () => void }) {
   return (
-    <div className="min-h-screen bg-[var(--cream)]">
-      <div className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-5 py-12">
+    <main className="min-h-dvh bg-[var(--cream)]">
+      <div className="mx-auto flex min-h-dvh max-w-3xl flex-col items-center justify-center px-5 py-12">
         <span className="chip">Quiz rápido · 2 minutos</span>
-        <h1 className="mt-5 text-center text-4xl font-black text-foreground sm:text-5xl md:text-6xl">
+        <h1 className="mt-5 text-balance text-center text-[2rem] font-black leading-[1.1] text-foreground sm:text-5xl md:text-6xl">
           Descubra o que pode estar{" "}
           <span className="italic text-[var(--coral)]">dificultando a fala</span>{" "}
           do seu filho
         </h1>
-        <p className="mt-5 max-w-xl text-center text-base text-muted-foreground sm:text-lg">
+        <p className="mt-5 max-w-xl text-pretty text-center text-base text-muted-foreground sm:text-lg">
           Responda 10 perguntas rápidas e receba um diagnóstico simples — junto com um plano
           prático para estimular a comunicação dele em casa, sem culpa e sem achismo.
         </p>
 
-        <button onClick={onStart} className="btn-cta mt-8">
+        <button
+          onClick={onStart}
+          className="btn-cta mt-8 min-h-12 w-full max-w-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:w-auto"
+        >
           Começar o quiz agora →
         </button>
 
@@ -203,13 +206,13 @@ function Intro({ onStart }: { onStart: () => void }) {
             "100% gratuito",
           ].map((t) => (
             <li key={t} className="flex items-start gap-2">
-              <span className="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-[var(--primary)]" />
+              <span aria-hidden="true" className="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-[var(--primary)]" />
               <span>{t}</span>
             </li>
           ))}
         </ul>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -229,31 +232,44 @@ function Quiz({
   onBack: () => void;
 }) {
   return (
-    <div className="min-h-screen bg-[var(--cream)]">
+    <main className="min-h-dvh bg-[var(--cream)]">
       <div className="mx-auto w-full max-w-2xl px-5 py-8 sm:py-12">
         <div className="mb-6 flex items-center justify-between text-xs font-semibold text-muted-foreground">
-          <button onClick={onBack} className="hover:text-foreground">← Voltar</button>
-          <span>Pergunta {step + 1} de {QUIZ.length}</span>
+          <button
+            onClick={onBack}
+            aria-label="Voltar para a pergunta anterior"
+            className="inline-flex min-h-11 items-center rounded-md px-2 hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
+          >
+            ← Voltar
+          </button>
+          <span aria-live="polite">Pergunta {step + 1} de {QUIZ.length}</span>
         </div>
-        <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
+        <div
+          className="h-2 w-full overflow-hidden rounded-full bg-secondary"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Progresso do quiz"
+        >
           <div
             className="h-full rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--coral)] transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
 
-        <h2 className="mt-8 text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+        <h2 className="mt-8 text-balance text-2xl font-bold leading-tight text-foreground sm:text-3xl">
           {question.q}
         </h2>
 
-        <div className="mt-6 grid gap-3">
+        <div className="mt-6 grid gap-3" role="list">
           {question.options.map((opt, i) => (
             <button
               key={i}
               onClick={() => onPick(i)}
-              className="group flex items-start gap-4 rounded-2xl border-2 border-border bg-card p-4 text-left transition hover:-translate-y-0.5 hover:border-[var(--primary)] hover:shadow-lg sm:p-5"
+              className="group flex min-h-14 items-start gap-4 rounded-2xl border-2 border-border bg-card p-4 text-left transition hover:-translate-y-0.5 hover:border-[var(--primary)] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:p-5"
             >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-secondary font-bold text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white">
+              <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-secondary font-bold text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white">
                 {String.fromCharCode(65 + i)}
               </span>
               <span className="pt-1 text-base text-foreground sm:text-[1.05rem]">{opt}</span>
@@ -261,7 +277,7 @@ function Quiz({
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -297,20 +313,20 @@ const BONUS = [
 
 function Sales() {
   return (
-    <div className="bg-[var(--cream)]">
+    <main className="bg-[var(--cream)]">
       {/* ============ HERO / RESULTADO ============ */}
       <section className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[color-mix(in_oklab,var(--primary)_14%,white)] to-transparent" />
           <div className="mx-auto grid max-w-6xl gap-10 px-5 pb-10 pt-10 sm:pt-16 md:grid-cols-2 md:items-center md:gap-14 md:pb-16">
             <div>
               <span className="chip">Resultado do seu quiz</span>
-              <h1 className="mt-4 text-4xl font-black leading-[1.05] text-foreground sm:text-5xl md:text-[3.25rem]">
+              <h1 className="mt-4 text-balance text-[2rem] font-black leading-[1.1] text-foreground sm:text-5xl md:text-[3.25rem]">
                 Você não está procurando “mais uma atividade”.
                 <span className="block italic text-[var(--coral)]">
                   Você quer saber exatamente o que fazer em casa.
                 </span>
               </h1>
-              <p className="mt-5 text-lg text-muted-foreground">
+              <p className="mt-5 text-pretty text-base text-muted-foreground sm:text-lg">
                 Pelas suas respostas, fica claro: você está cansada de dicas soltas, de salvar
                 vídeos que nunca aplica e de sentir culpa de “não estar fazendo o suficiente”.
                 O que você precisa é de um caminho organizado, leve e que caiba na sua rotina.
@@ -321,19 +337,28 @@ function Sales() {
                 visível.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a href={CHECKOUT_URL} className="btn-cta">Ver o plano completo →</a>
+                <a
+                  href={CHECKOUT_URL}
+                  className="btn-cta min-h-12 w-full justify-center sm:w-auto"
+                >
+                  Ver o plano completo →
+                </a>
                 <span className="text-sm text-muted-foreground">
                   Acesso imediato · Garantia de 30 dias
                 </span>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-[var(--sun)]/40 to-[var(--primary)]/20 blur-2xl" />
+            <div className="relative order-first md:order-none">
+              <div aria-hidden="true" className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-[var(--sun)]/40 to-[var(--primary)]/20 blur-2xl" />
               <img
                 src="/images/hero-mockup-Dt4a8q1o.webp"
-                alt="Mockup do método +150 Técnicas Fonoaudiológicas"
-                className="mx-auto w-full max-w-md drop-shadow-2xl"
+                alt="Capa do método +150 Técnicas Fonoaudiológicas"
+                width={640}
+                height={640}
+                className="mx-auto h-auto w-full max-w-xs drop-shadow-2xl sm:max-w-md"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
@@ -387,8 +412,9 @@ function Sales() {
                   <img
                     src={src}
                     alt={`Depoimento ${i + 1} de mãe que usou o método`}
-                    className="w-full"
+                    className="h-auto w-full"
                     loading="lazy"
+                    decoding="async"
                   />
                 </figure>
               ))}
@@ -451,7 +477,7 @@ function Sales() {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
               {PRODUTO_IMAGENS.map((src, i) => (
                 <div
                   key={src}
@@ -462,8 +488,9 @@ function Sales() {
                   <img
                     src={src}
                     alt={`Exemplo de página do método ${i + 1}`}
-                    className="h-full w-full object-cover"
+                    className="aspect-[4/5] h-full w-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -509,7 +536,10 @@ function Sales() {
                   <span className="pb-1 text-sm text-muted-foreground">à vista</span>
                 </div>
 
-                <a href={CHECKOUT_URL} className="btn-cta mt-6 w-full sm:w-auto">
+                <a
+                  href={CHECKOUT_URL}
+                  className="btn-cta mt-6 min-h-12 w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:w-auto"
+                >
                   Quero acessar agora →
                 </a>
                 <p className="mt-3 text-xs text-muted-foreground">
@@ -557,7 +587,7 @@ function Sales() {
         <footer className="border-t border-border bg-white py-8 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} +150 Técnicas Fonoaudiológicas · Todos os direitos reservados
         </footer>
-    </div>
+    </main>
   );
 }
 
