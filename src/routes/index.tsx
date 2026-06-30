@@ -179,20 +179,23 @@ function LandingPage() {
 
 function Intro({ onStart }: { onStart: () => void }) {
   return (
-    <div className="min-h-screen bg-[var(--cream)]">
-      <div className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-5 py-12">
+    <main className="min-h-dvh bg-[var(--cream)]">
+      <div className="mx-auto flex min-h-dvh max-w-3xl flex-col items-center justify-center px-5 py-12">
         <span className="chip">Quiz rápido · 2 minutos</span>
-        <h1 className="mt-5 text-center text-4xl font-black text-foreground sm:text-5xl md:text-6xl">
+        <h1 className="mt-5 text-balance text-center text-[2rem] font-black leading-[1.1] text-foreground sm:text-5xl md:text-6xl">
           Descubra o que pode estar{" "}
           <span className="italic text-[var(--coral)]">dificultando a fala</span>{" "}
           do seu filho
         </h1>
-        <p className="mt-5 max-w-xl text-center text-base text-muted-foreground sm:text-lg">
+        <p className="mt-5 max-w-xl text-pretty text-center text-base text-muted-foreground sm:text-lg">
           Responda 10 perguntas rápidas e receba um diagnóstico simples — junto com um plano
           prático para estimular a comunicação dele em casa, sem culpa e sem achismo.
         </p>
 
-        <button onClick={onStart} className="btn-cta mt-8">
+        <button
+          onClick={onStart}
+          className="btn-cta mt-8 min-h-12 w-full max-w-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:w-auto"
+        >
           Começar o quiz agora →
         </button>
 
@@ -203,13 +206,13 @@ function Intro({ onStart }: { onStart: () => void }) {
             "100% gratuito",
           ].map((t) => (
             <li key={t} className="flex items-start gap-2">
-              <span className="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-[var(--primary)]" />
+              <span aria-hidden="true" className="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-[var(--primary)]" />
               <span>{t}</span>
             </li>
           ))}
         </ul>
       </div>
-    </div>
+    </main>
   );
 }
 
