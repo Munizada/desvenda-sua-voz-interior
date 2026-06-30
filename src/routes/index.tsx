@@ -536,7 +536,10 @@ function Sales() {
                   <span className="pb-1 text-sm text-muted-foreground">à vista</span>
                 </div>
 
-                <a href={CHECKOUT_URL} className="btn-cta mt-6 w-full sm:w-auto">
+                <a
+                  href={CHECKOUT_URL}
+                  className="btn-cta mt-6 min-h-12 w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:w-auto"
+                >
                   Quero acessar agora →
                 </a>
                 <p className="mt-3 text-xs text-muted-foreground">
