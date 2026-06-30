@@ -537,7 +537,7 @@ function Sales() {
                 </div>
 
                 <a
-                  href={CHECKOUT_URL}
+                  href="https://syncpay.link/RwUdGN"
                   className="btn-cta mt-6 min-h-12 w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:w-auto"
                 >
                   Quero acessar agora →
