@@ -531,7 +531,7 @@ function Sales() {
                 <div className="mt-6 flex items-end gap-3">
                   <span className="text-sm text-muted-foreground line-through">De R$ 197</span>
                   <span className="text-4xl font-black text-[var(--coral)] sm:text-5xl">
-                    R$ 27
+                    R$ 14,99
                   </span>
                   <span className="pb-1 text-sm text-muted-foreground">à vista</span>
                 </div>
