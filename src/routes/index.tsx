@@ -320,13 +320,13 @@ function Sales() {
           <div className="mx-auto grid max-w-6xl gap-10 px-5 pb-10 pt-10 sm:pt-16 md:grid-cols-2 md:items-center md:gap-14 md:pb-16">
             <div>
               <span className="chip">Resultado do seu quiz</span>
-              <h1 className="mt-4 text-4xl font-black leading-[1.05] text-foreground sm:text-5xl md:text-[3.25rem]">
+              <h1 className="mt-4 text-balance text-[2rem] font-black leading-[1.1] text-foreground sm:text-5xl md:text-[3.25rem]">
                 Você não está procurando “mais uma atividade”.
                 <span className="block italic text-[var(--coral)]">
                   Você quer saber exatamente o que fazer em casa.
                 </span>
               </h1>
-              <p className="mt-5 text-lg text-muted-foreground">
+              <p className="mt-5 text-pretty text-base text-muted-foreground sm:text-lg">
                 Pelas suas respostas, fica claro: você está cansada de dicas soltas, de salvar
                 vídeos que nunca aplica e de sentir culpa de “não estar fazendo o suficiente”.
                 O que você precisa é de um caminho organizado, leve e que caiba na sua rotina.
@@ -337,19 +337,28 @@ function Sales() {
                 visível.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a href={CHECKOUT_URL} className="btn-cta">Ver o plano completo →</a>
+                <a
+                  href={CHECKOUT_URL}
+                  className="btn-cta min-h-12 w-full justify-center sm:w-auto"
+                >
+                  Ver o plano completo →
+                </a>
                 <span className="text-sm text-muted-foreground">
                   Acesso imediato · Garantia de 30 dias
                 </span>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-[var(--sun)]/40 to-[var(--primary)]/20 blur-2xl" />
+            <div className="relative order-first md:order-none">
+              <div aria-hidden="true" className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-[var(--sun)]/40 to-[var(--primary)]/20 blur-2xl" />
               <img
                 src="/images/hero-mockup-Dt4a8q1o.webp"
-                alt="Mockup do método +150 Técnicas Fonoaudiológicas"
-                className="mx-auto w-full max-w-md drop-shadow-2xl"
+                alt="Capa do método +150 Técnicas Fonoaudiológicas"
+                width={640}
+                height={640}
+                className="mx-auto h-auto w-full max-w-xs drop-shadow-2xl sm:max-w-md"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
