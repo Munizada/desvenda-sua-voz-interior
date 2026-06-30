@@ -412,8 +412,9 @@ function Sales() {
                   <img
                     src={src}
                     alt={`Depoimento ${i + 1} de mãe que usou o método`}
-                    className="w-full"
+                    className="h-auto w-full"
                     loading="lazy"
+                    decoding="async"
                   />
                 </figure>
               ))}
