@@ -573,7 +573,7 @@ function Sales() {
         <footer className="border-t border-border bg-white py-8 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} +150 Técnicas Fonoaudiológicas · Todos os direitos reservados
         </footer>
-    </div>
+    </main>
   );
 }
 
