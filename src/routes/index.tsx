@@ -477,7 +477,7 @@ function Sales() {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
               {PRODUTO_IMAGENS.map((src, i) => (
                 <div
                   key={src}
@@ -488,8 +488,9 @@ function Sales() {
                   <img
                     src={src}
                     alt={`Exemplo de página do método ${i + 1}`}
-                    className="h-full w-full object-cover"
+                    className="aspect-[4/5] h-full w-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
