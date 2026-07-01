@@ -328,8 +328,15 @@ const BONUS = [
 ];
 
 function Sales() {
+  useEffect(() => {
+    trackMetaEvent("ViewContent", {
+      content_name: "Oferta Principal",
+      content_category: "Landing Page",
+    });
+  }, []);
   return (
     <main className="bg-[var(--cream)]">
+
       {/* ============ HERO / RESULTADO ============ */}
       <section className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[color-mix(in_oklab,var(--primary)_14%,white)] to-transparent" />
