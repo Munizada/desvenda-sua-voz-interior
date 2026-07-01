@@ -152,6 +152,10 @@ function LandingPage() {
     if (step + 1 < QUIZ.length) {
       setStep(step + 1);
     } else {
+      trackMetaEvent("Lead", {
+        content_name: "Quiz concluído",
+        content_category: "Lead",
+      });
       setStage("sales");
     }
   }
