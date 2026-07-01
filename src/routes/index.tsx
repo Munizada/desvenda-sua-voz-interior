@@ -160,7 +160,18 @@ function LandingPage() {
     }
   }
 
-  if (stage === "intro") return <Intro onStart={() => setStage("quiz")} />;
+  if (stage === "intro")
+    return (
+      <Intro
+        onStart={() => {
+          trackMetaEvent("Lead", {
+            content_name: "Início do quiz",
+            content_category: "Lead",
+          });
+          setStage("quiz");
+        }}
+      />
+    );
   if (stage === "quiz")
     return (
       <Quiz
