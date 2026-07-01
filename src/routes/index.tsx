@@ -362,6 +362,7 @@ function Sales() {
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   href={CHECKOUT_URL}
+                  onClick={(e) => handleCheckoutClick(e, { content_name: "CTA Hero — Ver plano completo" })}
                   className="btn-cta min-h-12 w-full justify-center sm:w-auto"
                 >
                   Ver o plano completo →
