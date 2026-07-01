@@ -562,6 +562,7 @@ function Sales() {
 
                 <a
                   href="https://syncpay.link/RwUdGN"
+                  onClick={(e) => handleCheckoutClick(e, { content_name: "CTA Final — Quero acessar agora" })}
                   className="btn-cta mt-6 min-h-12 w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:w-auto"
                 >
                   Quero acessar agora →
