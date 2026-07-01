@@ -121,7 +121,7 @@ const QUIZ: QuizQ[] = [
   },
 ];
 
-const CHECKOUT_URL = "#oferta"; // troque pelo link real de checkout
+const CHECKOUT_URL = CHECKOUT_LINK;
 
 /* ------------------------------ COMPONENT ------------------------------ */
 
