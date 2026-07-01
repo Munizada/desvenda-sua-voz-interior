@@ -144,6 +144,28 @@ src="https://www.facebook.com/tr?id=4430724457196126&ev=PageView&noscript=1"
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  // Fire PageView on client-side route changes (base script already fires it on initial load).
+  useEffect(() => {
+    let firstResolve = true;
+    const unsub = router.subscribe("onResolved", () => {
+      if (firstResolve) {
+        firstResolve = false;
+        return;
+      }
+      if (typeof window !== "undefined" && typeof window.fbq === "function") {
+        try {
+          window.fbq("track", "PageView");
+        } catch {
+          // ignore
+        }
+      }
+    });
+    return () => {
+      unsub();
+    };
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>
