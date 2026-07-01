@@ -115,6 +115,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
         <script
+          id="meta-pixel-base"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -128,15 +129,13 @@ fbq('init', '4430724457196126');
 fbq('track', 'PageView');`,
           }}
         />
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4430724457196126&ev=PageView&noscript=1"
-/>`,
-          }}
-        />
       </head>
       <body>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4430724457196126&ev=PageView&noscript=1" alt="" />`,
+          }}
+        />
         {children}
         <Scripts />
       </body>
