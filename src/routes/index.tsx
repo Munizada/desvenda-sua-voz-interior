@@ -5,17 +5,17 @@ import { useEffect, useMemo, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "+150 Técnicas Fonoaudiológicas — Estimule a fala do seu filho em casa" },
+      { title: "+150 Técnicas Fonoaudiológicas — Acervo de Atividades e Orientação Parental" },
       {
         name: "description",
         content:
-          "Descubra, em 2 minutos, o que pode estar travando a fala do seu filho — e receba um plano simples para estimular a comunicação em casa, sem culpa e sem achismo.",
+          "Descubra qual é o maior gargalo nas suas sessões e na adesão dos pais — e tenha acesso a um acervo com +150 técnicas estruturadas para turbinar seus atendimentos clínicos.",
       },
-      { property: "og:title", content: "Descubra o que pode estar dificultando a fala do seu filho" },
+      { property: "og:title", content: "Descubra qual o maior gargalo nas suas sessões e na adesão dos pais" },
       {
         property: "og:description",
         content:
-          "Quiz rápido + acesso ao método com +150 técnicas práticas para estimular a fala infantil em casa.",
+          "Quiz rápido + acesso ao acervo com +150 técnicas práticas prontas para aplicar em terapia e enviar como orientação de casa.",
       },
       { property: "og:image", content: "/images/social-1779800361542-hero-mockup-Dt4a8q1o.webp" },
     ],
@@ -29,93 +29,93 @@ type QuizQ = { q: string; options: string[] };
 
 const QUIZ: QuizQ[] = [
   {
-    q: "O que mais te preocupa hoje na fala ou comunicação do seu filho?",
+    q: "Qual é o seu maior desafio hoje na rotina de atendimentos de estimulação de fala?",
     options: [
-      "Ele fala pouco e eu sinto que deveria estar se comunicando mais.",
-      "Ele até tenta falar, mas muitas vezes ninguém entende direito.",
-      "Ele se irrita quando não consegue explicar o que quer.",
-      "Eu sinto que tem algo atrasando a fala dele, mas não sei exatamente o quê.",
+      "Falta de tempo para planejar sessões dinâmicas e personalizadas.",
+      "Os pais não dão continuidade às orientações e estimulações em casa.",
+      "Falta de recursos visuais e materiais práticos e organizados para os pacientes.",
+      "Manter a criança engajada e motivada durante toda a sessão terapêutica.",
     ],
   },
   {
-    q: "Quando você compara seu filho com outras crianças da mesma idade, o que você sente?",
+    q: "Como você se sente quando precisa enviar tarefas ou orientações para a família realizar em casa?",
     options: [
-      "Um aperto no peito, porque outras crianças parecem falar com mais facilidade.",
-      "Uma insegurança constante, porque não sei se o desenvolvimento dele está dentro do esperado.",
-      "Uma culpa silenciosa, como se eu pudesse ter feito mais antes.",
-      "Uma preocupação diária, porque percebo diferenças na forma como ele se comunica.",
+      "Frustrada(o), porque sei que a maioria dos pais não vai conseguir aplicar dicas soltas.",
+      "Insegura(o), se a explicação foi clara o suficiente para eles executarem certo.",
+      "Sobrecarregada(o), por ter que criar ou adaptar materiais personalizados para cada família.",
+      "Preocupada(o), pois a falta de estimulação em casa atrasa a evolução clínica.",
     ],
   },
   {
-    q: "O que costuma acontecer quando seu filho tenta se expressar e não consegue?",
+    q: "O que costuma acontecer quando um paciente infantil demonstra resistência ou perde o foco na sessão?",
     options: [
-      "Ele fica irritado, chora ou demonstra frustração.",
-      "Ele aponta, grita ou tenta se fazer entender de outras formas.",
-      "Ele desiste de falar e acaba se fechando.",
-      "Eu fico angustiada porque vejo que ele quer falar, mas não consegue como gostaria.",
+      "Fico sem alternativas rápidas de atividades lúdicas para redirecionar o foco.",
+      "Preciso improvisar com materiais que nem sempre estão alinhados com o objetivo terapêutico.",
+      "A sessão acaba rendendo menos do que o planejado e gera frustração.",
+      "Gasto muita energia tentando achar novos estímulos na hora e me desgasto.",
     ],
   },
   {
-    q: "Como você se sente quando tenta estimular a fala dele em casa?",
+    q: "Ao planejar o cronograma de estimulação de fala para os seus pacientes, o que você mais sente falta?",
     options: [
-      "Perdida, porque não sei quais atividades realmente ajudam.",
-      "Insegura, porque tenho medo de fazer errado.",
-      "Frustrada, porque começo uma atividade e ele perde o interesse rápido.",
-      "Ansiosa, porque sinto que preciso fazer algo, mas não sei por onde começar.",
+      "Um acervo organizado com técnicas passo a passo e frases de modelo prontas para uso.",
+      "Materiais lúdicos, ilustrados e de fácil compreensão para os pais aplicarem sem dificuldades.",
+      "Uma sequência de atividades dividida por níveis de complexidade ou objetivos.",
+      "Variedade de ideias práticas para enriquecer meus atendimentos sem perder horas pesquisando.",
     ],
   },
   {
-    q: "Qual dessas situações mais mexe com você?",
+    q: "Qual dessas situações na sua prática clínica mais te causa incômodo ou frustração?",
     options: [
-      "Ver meu filho tentando falar e as pessoas não entenderem.",
-      "Escutar comentários como “ele ainda não fala direito?”.",
-      "Perceber que ele evita falar perto de outras pessoas.",
-      "Imaginar que ele pode sofrer na escola por não conseguir se comunicar bem.",
+      "Ver o progresso do paciente estagnar porque a família não realiza a estimulação no lar.",
+      "Perceber que gastei horas do meu final de semana planejando sessões e criando materiais.",
+      "Ouvir dos pais que 'tentaram fazer em casa' mas a criança não quis ou eles não souberam como.",
+      "Ficar sem ideias novas para pacientes que já estão comigo há bastante tempo.",
     ],
   },
   {
-    q: "Quando seu filho fala, o que você percebe com mais frequência?",
+    q: "Ao avaliar um paciente com atraso de fala ou desvio fonológico, qual é o seu principal foco ao escolher técnicas?",
     options: [
-      "Ele troca sons ou pronuncia algumas palavras de forma confusa.",
-      "Ele fala enrolado e eu preciso traduzir para outras pessoas.",
-      "Ele usa poucas palavras para expressar o que quer.",
-      "Ele parece ter dificuldade para imitar sons, movimentos ou palavras novas.",
+      "Técnicas que facilitem a produção de fonemas específicos de forma lúdica.",
+      "Estratégias de expansão de vocabulário e estruturação de frases na rotina.",
+      "Atividades de estimulação de fala espontânea por meio de contextos interativos.",
+      "Dicas práticas de conscientização fonológica de fácil replicação pelos pais.",
     ],
   },
   {
-    q: "O que você já sentiu ao procurar atividades para estimular a fala infantil?",
+    q: "Qual é a sua principal queixa em relação aos materiais de fonoaudiologia infantil do mercado?",
     options: [
-      "Que existe muita informação solta e pouca orientação prática.",
-      "Que eu salvo várias dicas, mas não sei qual aplicar primeiro.",
-      "Que os conteúdos parecem bonitos, mas não explicam exatamente o que observar.",
-      "Que eu preciso de algo mais organizado para não ficar tentando no escuro.",
+      "Muitos são teóricos demais e trazem poucas ideias de aplicação prática real na sessão.",
+      "Materiais soltos na internet sem um método claro ou explicação sobre como adaptá-los.",
+      "Conteúdos visualmente pouco atraentes ou que exigem muita preparação física complexa.",
+      "Falta de instruções claras que eu possa repassar diretamente para os pais sem jargão técnico.",
     ],
   },
   {
-    q: "O que mais pesa emocionalmente para você nessa situação?",
+    q: "Como você avalia a sua sobrecarga de trabalho com planejamento de sessões fora do consultório?",
     options: [
-      "A culpa de pensar que talvez eu tenha demorado para agir.",
-      "O medo de que essa dificuldade afete o futuro dele.",
-      "A sensação de impotência quando vejo ele tentando se comunicar.",
-      "A ansiedade de não saber se estou fazendo o suficiente.",
+      "Alta, levo muito trabalho de preparação de atividades para casa nos finais de semana.",
+      "Média, mas perco um tempo precioso que poderia usar para captar clientes ou descansar.",
+      "Estressante, sinto que estou sempre correndo atrás de novas dinâmicas para não ser repetitiva(o).",
+      "Preocupante, pois sinto que a falta de um acervo unificado me faz perder produtividade.",
     ],
   },
   {
-    q: "Entre uma orientação e outra, como você se sente no dia a dia?",
+    q: "Como você avalia a comunicação e alinhamento com os pais sobre a lição de casa dos pacientes?",
     options: [
-      "Sozinha, porque queria saber exatamente como ajudar em casa.",
-      "Preocupada, porque sinto que cada dia sem estímulo certo pode fazer diferença.",
-      "Insegura, porque não sei se estou reforçando do jeito correto.",
-      "Cansada de depender apenas de dicas soltas ou esperar a próxima consulta.",
+      "Difícil, pois eles acham que a terapia de 50 minutos semanais é suficiente por si só.",
+      "Pouco efetiva, eles esquecem as orientações verbais ou acham as tarefas complexas demais.",
+      "Desgastante, preciso ficar cobrando feedback sobre a estimulação doméstica constantemente.",
+      "Inconsistente, pois faltam instruções impressas e objetivas para guiar o treino diário.",
     ],
   },
   {
-    q: "Se você pudesse resolver uma coisa agora, qual seria a mais importante?",
+    q: "Se você pudesse otimizar apenas um pilar da sua prática clínica hoje, qual escolheria?",
     options: [
-      "Ter atividades prontas para estimular a fala dele de forma simples.",
-      "Saber como conduzir brincadeiras que realmente ajudam na comunicação.",
-      "Conseguir perceber pequenas evoluções sem ficar perdida.",
-      "Sentir que estou fazendo algo concreto para ajudar meu filho a falar melhor.",
+      "Ter um acervo pronto de mais de 150 técnicas fonoaudiológicas para usar na hora e compartilhar.",
+      "Aumentar a adesão das famílias às tarefas de casa com orientações simples e visuais.",
+      "Reduzir meu tempo de planejamento de sessões pela metade sem perder a qualidade.",
+      "Elevar a satisfação dos clientes mostrando resultados mais rápidos por meio do reforço doméstico.",
     ],
   },
 ];
@@ -181,15 +181,14 @@ function Intro({ onStart }: { onStart: () => void }) {
   return (
     <main className="min-h-dvh bg-[var(--cream)]">
       <div className="mx-auto flex min-h-dvh max-w-3xl flex-col items-center justify-center px-5 py-12">
-        <span className="chip">Quiz rápido · 2 minutos</span>
+        <span className="chip">Para Fonoaudiólogos · 2 minutos</span>
         <h1 className="mt-5 text-balance text-center text-[2rem] font-black leading-[1.1] text-foreground sm:text-5xl md:text-6xl">
-          Descubra o que pode estar{" "}
-          <span className="italic text-[var(--coral)]">dificultando a fala</span>{" "}
-          do seu filho
+          Descubra qual é o maior{" "}
+          <span className="italic text-[var(--coral)]">gargalo nas suas sessões</span>{" "}
+          e na adesão dos pais
         </h1>
         <p className="mt-5 max-w-xl text-pretty text-center text-base text-muted-foreground sm:text-lg">
-          Responda 10 perguntas rápidas e receba um diagnóstico simples — junto com um plano
-          prático para estimular a comunicação dele em casa, sem culpa e sem achismo.
+          Responda 10 perguntas rápidas e receba um diagnóstico da sua prática de estimulação e orientação — junto com um acervo prático de +150 técnicas estruturadas para turbinar seus atendimentos.
         </p>
 
         <button
@@ -201,8 +200,8 @@ function Intro({ onStart }: { onStart: () => void }) {
 
         <ul className="mt-8 grid w-full max-w-lg gap-3 text-sm text-muted-foreground sm:grid-cols-3">
           {[
-            "Feito com base em técnicas fonoaudiológicas",
-            "Resposta personalizada no final",
+            "Material prático de apoio clínico",
+            "Diagnóstico do perfil de atendimento",
             "100% gratuito",
           ].map((t) => (
             <li key={t} className="flex items-start gap-2">
@@ -321,20 +320,17 @@ function Sales() {
             <div>
               <span className="chip">Resultado do seu quiz</span>
               <h1 className="mt-4 text-balance text-[2rem] font-black leading-[1.1] text-foreground sm:text-5xl md:text-[3.25rem]">
-                Você não está procurando “mais uma atividade”.
+                Você não precisa passar horas planejando sessões.
                 <span className="block italic text-[var(--coral)]">
-                  Você quer saber exatamente o que fazer em casa.
+                  Você quer um acervo pronto para atender e orientar.
                 </span>
               </h1>
               <p className="mt-5 text-pretty text-base text-muted-foreground sm:text-lg">
-                Pelas suas respostas, fica claro: você está cansada de dicas soltas, de salvar
-                vídeos que nunca aplica e de sentir culpa de “não estar fazendo o suficiente”.
-                O que você precisa é de um caminho organizado, leve e que caiba na sua rotina.
+                Pelas suas respostas, fica claro: você quer otimizar seu tempo, reduzir a sobrecarga de planejar atendimentos do zero e encontrar uma forma eficaz de garantir a estimulação correta no ambiente familiar. O que você precisa é de um acervo prático, direto e lúdico que sirva tanto para enriquecer suas sessões quanto para engajar os pais nas orientações.
               </p>
               <p className="mt-4 text-base text-foreground">
-                <strong>+150 Técnicas Fonoaudiológicas</strong> foi feito exatamente para isso:
-                transformar a estimulação da fala em momentos simples, afetivos e com evolução
-                visível.
+                O manual <strong>+150 Técnicas Fonoaudiológicas</strong> foi estruturado exatamente para isso:
+                simplificar sua rotina clínica, fornecendo atividades ilustradas com objetivos claros e facilidade de replicação pelos pais em casa.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
@@ -367,19 +363,19 @@ function Sales() {
         {/* ============ DORES / RECONHECIMENTO ============ */}
         <section className="mx-auto max-w-5xl px-5 py-14">
           <h2 className="text-center text-3xl font-black sm:text-4xl">
-            Se você é mãe e se reconhece em alguma dessas frases…
+            Se você é fonoaudiólogo(a) e se reconhece em alguma dessas frases…
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
-            Você não está sozinha — e o problema não é falta de amor nem de esforço.
+            Esses desafios são comuns na rotina de atendimento infantil — mas existe uma forma mais inteligente de organizar suas sessões e condutas.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {[
-              "“Sei que ele entende tudo, mas quase ninguém compreende o que ele fala.”",
-              "“Eu salvo dezenas de vídeos de estimulação, mas nunca sei por onde começar.”",
-              "“Sinto culpa de pensar que talvez eu tenha demorado para agir.”",
-              "“Tenho medo de que essa dificuldade afete o futuro dele na escola.”",
-              "“Começo uma atividade e ele perde o interesse em poucos minutos.”",
-              "“Estou cansada de parecer forte por fora e estar exausta por dentro.”",
+              "“Levo muito trabalho de planejamento de sessões e criação de materiais para os finais de semana.”",
+              "“Os pais dizem que esquecem as orientações verbais ou que não sabem como aplicar as atividades em casa.”",
+              "“Pacientes antigos demonstram tédio e preciso inventar novas estratégias lúdicas constantemente.”",
+              "“Gasto muito tempo e dinheiro imprimindo e recortando recursos terapêuticos complexos toda semana.”",
+              "“Gostaria de ter um acervo padronizado de rápida consulta para diferentes objetivos de estimulação.”",
+              "“Sinto sobrecarga ao tentar conciliar o atendimento clínico com a produção de materiais didáticos.”",
             ].map((t) => (
               <div
                 key={t}
@@ -395,12 +391,12 @@ function Sales() {
         <section className="bg-white py-14">
           <div className="mx-auto max-w-6xl px-5">
             <div className="mx-auto max-w-2xl text-center">
-              <span className="chip">Mães reais · Resultados reais</span>
+              <span className="chip">Fonoaudiólogos reais · Resultados reais</span>
               <h2 className="mt-4 text-3xl font-black sm:text-4xl">
-                Mães que pararam de “tentar no escuro” e viram a fala evoluir
+                Profissionais que pararam de criar tudo do zero e otimizaram seus resultados
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Depoimentos espontâneos de quem aplicou as técnicas em casa, no dia a dia.
+                Veja o feedback de quem utiliza nosso acervo na prática clínica diária e na orientação parental.
               </p>
             </div>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -411,7 +407,7 @@ function Sales() {
                 >
                   <img
                     src={src}
-                    alt={`Depoimento ${i + 1} de mãe que usou o método`}
+                    alt={`Depoimento ${i + 1} de fonoaudiólogo que usou o método`}
                     className="h-auto w-full"
                     loading="lazy"
                     decoding="async"
@@ -435,21 +431,21 @@ function Sales() {
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <img
               src="/images/dois-lados-C4dckFPO.webp"
-              alt="Comparativo entre tentar sozinha e seguir o método"
+              alt="Comparativo entre planejar tudo do zero e seguir o acervo"
               className="w-full rounded-3xl shadow-xl"
               loading="lazy"
             />
             <div>
               <h2 className="text-3xl font-black sm:text-4xl">
-                A diferença entre <span className="text-[var(--coral)]">tentar adivinhar</span> e{" "}
-                <span className="text-[var(--primary)]">seguir um plano</span>
+                A diferença entre <span className="text-[var(--coral)]">planejar tudo do zero</span> e{" "}
+                <span className="text-[var(--primary)]">ter um acervo pronto</span>
               </h2>
               <ul className="mt-6 space-y-3 text-foreground">
                 {[
-                  "Saber exatamente qual técnica usar em cada dificuldade.",
-                  "Trocar a culpa pela clareza de estar ajudando do jeito certo.",
-                  "Atividades curtas (5–10 min) que cabem na rotina real.",
-                  "Linguagem simples — você não precisa ser fonoaudióloga.",
+                  "Ter ideias de atividades prontas e com objetivos definidos em segundos.",
+                  "Enviar tarefas de casa profissionais que facilitam o entendimento e adesão dos pais.",
+                  "Atividades curtas (5–10 min) fáceis de integrar na sessão ou na rotina da família.",
+                  "Linguagem simples nas orientações — ideal para os pais replicarem com segurança.",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-3">
                     <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[var(--primary)] text-xs font-bold text-white">
@@ -472,8 +468,7 @@ function Sales() {
                 +150 técnicas prontas, organizadas e ilustradas
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Cada técnica vem com explicação simples, frases-modelo e o passo a passo de
-                como aplicar com seu filho em casa.
+                Cada técnica vem com objetivo fonoaudiológico claro, frases-modelo, respostas esperadas e orientações mastigadas para repassar aos pais.
               </p>
             </div>
 
@@ -522,11 +517,10 @@ function Sales() {
               <div>
                 <span className="chip">Oferta especial</span>
                 <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
-                  Comece hoje a estimular a fala do seu filho — com leveza e direção
+                  Facilite seus atendimentos e otimize a orientação parental a partir de hoje
                 </h2>
                 <p className="mt-4 text-muted-foreground">
-                  Acesso imediato a <strong>+150 técnicas fonoaudiológicas</strong>, 4 bônus e
-                  atualizações vitalícias.
+                  Acesso imediato ao acervo de <strong>+150 técnicas fonoaudiológicas</strong>, 4 bônus exclusivos e atualizações vitalícias.
                 </p>
                 <div className="mt-6 flex items-end gap-3">
                   <span className="text-sm text-muted-foreground line-through">De R$ 197</span>
@@ -548,9 +542,9 @@ function Sales() {
 
                 <ul className="mt-6 grid gap-2 text-sm text-foreground">
                   {[
-                    "Mais de 150 técnicas organizadas por objetivo",
-                    "Frases-modelo e respostas esperadas para cada atividade",
-                    "Adaptações para crianças que perdem o interesse rápido",
+                    "Mais de 150 técnicas prontas organizadas por objetivos terapêuticos",
+                    "Instruções didáticas e frases-modelo prontas para orientar os pais",
+                    "Dinâmicas lúdicas para engajar crianças com perfis variados",
                     "Acesso vitalício + atualizações futuras grátis",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-2">
@@ -579,8 +573,7 @@ function Sales() {
           </div>
 
           <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-muted-foreground">
-            Você merece parar de tentar no escuro. Em poucos minutos por dia, você vai sentir
-            que está finalmente fazendo algo concreto pela fala — e pela autoestima — do seu filho.
+            Sua rotina clínica merece essa praticidade. Poupe tempo de planejamento, eleve a qualidade das suas sessões e proporcione um progresso visível estimulando a parceria com as famílias.
           </p>
         </section>
 
