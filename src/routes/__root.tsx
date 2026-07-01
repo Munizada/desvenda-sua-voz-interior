@@ -98,7 +98,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=Nunito:wght@400;700;800&display=swap",
       },
-      { rel: "preload", as: "image", href: "/images/hero-mockup-Dt4a8q1o.webp", fetchpriority: "high" },
+      { rel: "preload", as: "image", href: "/images/hero-mockup-Dt4a8q1o.webp", fetchPriority: "high" },
+      { rel: "preconnect", href: "https://connect.facebook.net" },
+      { rel: "preconnect", href: "https://www.facebook.com" },
     ],
   }),
   shellComponent: RootShell,
@@ -113,6 +115,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
         <script
+          id="meta-pixel-base"
           dangerouslySetInnerHTML={{
             __html: `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -126,15 +129,13 @@ fbq('init', '4430724457196126');
 fbq('track', 'PageView');`,
           }}
         />
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4430724457196126&ev=PageView&noscript=1"
-/>`,
-          }}
-        />
       </head>
       <body>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4430724457196126&ev=PageView&noscript=1" alt="" />`,
+          }}
+        />
         {children}
         <Scripts />
       </body>
