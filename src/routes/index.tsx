@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { CHECKOUT_LINK, handleCheckoutClick, trackMetaEvent } from "../lib/meta-pixel";
 
 
 export const Route = createFileRoute("/")({
@@ -120,7 +121,7 @@ const QUIZ: QuizQ[] = [
   },
 ];
 
-const CHECKOUT_URL = "#oferta"; // troque pelo link real de checkout
+const CHECKOUT_URL = CHECKOUT_LINK;
 
 /* ------------------------------ COMPONENT ------------------------------ */
 
@@ -151,11 +152,26 @@ function LandingPage() {
     if (step + 1 < QUIZ.length) {
       setStep(step + 1);
     } else {
+      trackMetaEvent("Lead", {
+        content_name: "Quiz concluído",
+        content_category: "Lead",
+      });
       setStage("sales");
     }
   }
 
-  if (stage === "intro") return <Intro onStart={() => setStage("quiz")} />;
+  if (stage === "intro")
+    return (
+      <Intro
+        onStart={() => {
+          trackMetaEvent("Lead", {
+            content_name: "Início do quiz",
+            content_category: "Lead",
+          });
+          setStage("quiz");
+        }}
+      />
+    );
   if (stage === "quiz")
     return (
       <Quiz
@@ -311,8 +327,15 @@ const BONUS = [
 ];
 
 function Sales() {
+  useEffect(() => {
+    trackMetaEvent("ViewContent", {
+      content_name: "Oferta Principal",
+      content_category: "Landing Page",
+    });
+  }, []);
   return (
     <main className="bg-[var(--cream)]">
+
       {/* ============ HERO / RESULTADO ============ */}
       <section className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[color-mix(in_oklab,var(--primary)_14%,white)] to-transparent" />
@@ -335,6 +358,7 @@ function Sales() {
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   href={CHECKOUT_URL}
+                  onClick={(e) => handleCheckoutClick(e, { content_name: "CTA Hero — Ver plano completo" })}
                   className="btn-cta min-h-12 w-full justify-center sm:w-auto"
                 >
                   Ver o plano completo →
@@ -532,6 +556,7 @@ function Sales() {
 
                 <a
                   href="https://syncpay.link/RwUdGN"
+                  onClick={(e) => handleCheckoutClick(e, { content_name: "CTA Final — Quero acessar agora" })}
                   className="btn-cta mt-6 min-h-12 w-full justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] sm:w-auto"
                 >
                   Quero acessar agora →
