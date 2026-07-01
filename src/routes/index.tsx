@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { CHECKOUT_LINK, handleCheckoutClick, trackMetaEvent } from "../lib/meta-pixel";
 
 
 export const Route = createFileRoute("/")({
